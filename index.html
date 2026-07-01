@@ -24,6 +24,81 @@
     min-height: 100vh;
   }
 
+  /* COVER / KOVERAT */
+  body.cover-open { overflow: hidden; }
+
+  .cover {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    background-image:
+      linear-gradient(rgba(6,6,6,0.70), rgba(6,6,6,0.86)),
+      url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1400&q=80');
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+  }
+
+  .cover.hidden { opacity: 0; visibility: hidden; }
+
+  .cover-inner {
+    max-width: 460px;
+    padding: 3.2rem 2.2rem;
+    border: 1px solid rgba(201,162,75,0.5);
+    border-radius: 3px;
+    background: rgba(10,10,10,0.35);
+    backdrop-filter: blur(2px);
+  }
+
+  .cover-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: #c9a24b;
+    margin-bottom: 1.6rem;
+  }
+
+  .cover-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 500;
+    font-size: 46px;
+    line-height: 1.1;
+    color: #d9b968;
+    text-shadow: 0 2px 20px rgba(201,162,75,0.3);
+  }
+
+  .cover-sub {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: rgba(236,231,219,0.78);
+    margin-top: 0.5rem;
+  }
+
+  .cover-btn {
+    margin-top: 2.4rem;
+    padding: 0.95rem 2.2rem;
+    border: 1px solid #c9a24b;
+    background: transparent;
+    color: #d9b968;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s;
+  }
+
+  .cover-btn:hover { background: #c9a24b; color: #0a0a0a; }
+
   /* HERO */
   .hero {
     text-align: center;
@@ -336,10 +411,28 @@
     .g-photo { aspect-ratio: 4 / 3; }
     .details { grid-template-columns: 1fr; gap: 1.5rem; }
     .section { padding: 2.5rem 1.5rem; }
+    .cover-title { font-size: 34px; }
+    .cover-sub { font-size: 19px; }
+    .cover-inner { padding: 2.5rem 1.6rem; }
   }
 </style>
 </head>
-<body>
+<body class="cover-open">
+
+<!-- COVER / KOVERAT (uvodni ekran) -->
+<div class="cover" id="cover">
+  <div class="cover-inner">
+    <p class="cover-tag">Pozivnica</p>
+    <div class="cover-title">CHARLESTON<span class="cover-sub">party — zlatne dvadesete</span></div>
+    <div class="ornament" style="margin-top:1.8rem;">
+      <div class="orn-line"></div>
+      <div class="orn-diamond"></div>
+      <div class="orn-line"></div>
+    </div>
+    <button class="cover-btn" onclick="openInvite()">Otvori pozivnicu</button>
+  </div>
+</div>
+
 <div class="wrap">
 
   <!-- HERO -->
@@ -450,6 +543,11 @@
 </div>
 
 <script>
+function openInvite(){
+  document.getElementById('cover').classList.add('hidden');
+  document.body.classList.remove('cover-open');
+}
+
 function pad(n){ return String(n).padStart(2,'0'); }
 function tick(){
   // Datum proslave — po potrebi izmenite godinu

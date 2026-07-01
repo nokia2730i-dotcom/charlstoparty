@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Charleston Party — 06.09.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0a0a0a;
+    color: #ece7db;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+  }
+
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #0d0d0d;
+    border-left: 0.5px solid #2a2620;
+    border-right: 0.5px solid #2a2620;
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 6.5rem 2rem 5.5rem;
+    border-bottom: 1px solid #2a2620;
+    position: relative;
+    background-image:
+      linear-gradient(rgba(8,8,8,0.72), rgba(8,8,8,0.82)),
+      url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1400&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .deco-top {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: #c9a24b;
+    margin-bottom: 1.6rem;
+  }
+
+  .tagline {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(236,231,219,0.6);
+    margin-bottom: 1.8rem;
+  }
+
+  .title {
+    font-family: 'Cinzel', serif;
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 1.08;
+    letter-spacing: 0.02em;
+    color: #d9b968;
+    text-shadow: 0 2px 20px rgba(201,162,75,0.25);
+  }
+
+  .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 26px;
+    color: rgba(236,231,219,0.75);
+    display: block;
+    margin-top: 0.6rem;
+  }
+
+  .celebrant {
+    margin-top: 1.4rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: rgba(236,231,219,0.8);
+  }
+
+  .celebrant em {
+    font-style: italic;
+    color: #d9b968;
+    font-size: 26px;
+  }
+
+  .date-line {
+    margin-top: 1.8rem;
+    font-size: 12px;
+    font-weight: 200;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(236,231,219,0.65);
+  }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 2.4rem;
+  }
+
+  .orn-line { flex: 1; max-width: 90px; height: 0.5px; background: rgba(201,162,75,0.5); }
+  .orn-diamond { width: 6px; height: 6px; border: 0.5px solid #c9a24b; transform: rotate(45deg); }
+
+  /* SECTIONS */
+  .section {
+    padding: 3.5rem 3rem;
+    border-bottom: 1px solid #2a2620;
+  }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #c9a24b;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  /* INTRO TEXT */
+  .intro {
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .intro p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(236,231,219,0.85);
+    margin-bottom: 1.2rem;
+  }
+
+  .intro p:last-child { margin-bottom: 0; }
+
+  .intro .accent {
+    color: #d9b968;
+    font-style: italic;
+  }
+
+  /* COUNTDOWN */
+  .countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid #2a2620;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .cd-box {
+    text-align: center;
+    padding: 2rem 0.5rem 1.2rem;
+    border-right: 1px solid #2a2620;
+  }
+  .cd-box:last-child { border-right: none; }
+
+  .cd-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1;
+    display: block;
+    color: #d9b968;
+  }
+
+  .cd-lbl {
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8a8578;
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  /* DRESS CODE / GALLERY */
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.4rem;
+  }
+
+  .g-item { text-align: center; }
+
+  .g-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 2px;
+    filter: sepia(0.35) contrast(1.05) brightness(0.92);
+    border: 1px solid #2a2620;
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+
+  .g-title {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #c9a24b;
+  }
+
+  .g-text {
+    font-size: 12.5px;
+    font-weight: 300;
+    color: #8a8578;
+    line-height: 1.6;
+  }
+
+  .dress-note {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: rgba(236,231,219,0.8);
+    line-height: 1.6;
+  }
+
+  .dress-note strong { color: #d9b968; font-weight: 400; }
+
+  /* DETAILS */
+  .details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .detail-box .d-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #c9a24b;
+    display: block;
+    margin-bottom: 0.7rem;
+  }
+
+  .detail-box .d-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: #ece7db;
+  }
+
+  .detail-box a.d-value {
+    color: #d9b968;
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(201,162,75,0.45);
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .detail-box a.d-value:hover {
+    color: #ece7db;
+    border-bottom-color: #d9b968;
+  }
+
+  .detail-box .d-sub {
+    font-size: 12px;
+    color: #8a8578;
+    display: block;
+    margin-top: 0.35rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* RSVP — Tally embed placeholder */
+  .rsvp-intro {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(236,231,219,0.8);
+    max-width: 420px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  .tally-slot {
+    border: 1px dashed #3a352b;
+    border-radius: 3px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: #6f6a5e;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+
+  .tally-slot code {
+    color: #c9a24b;
+    font-family: 'Jost', monospace;
+    font-size: 11px;
+  }
+  /*
+    ── OVDE IDE TALLY FORMA ──
+    Kada napravite formu na tally.so, obrišite .tally-slot iznad
+    i nalepite embed kod, npr:
+
+    <iframe data-tally-src="https://tally.so/embed/XXXXX?transparentBackground=1"
+            loading="lazy" width="100%" height="500" frameborder="0"
+            title="Potvrda dolaska"></iframe>
+    <script src="https://tally.so/widgets/embed.js"></script>
+  */
+
+  .footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #6f6a5e;
+  }
+
+  @media (max-width: 500px) {
+    .hero { padding: 5rem 1.5rem 4.5rem; }
+    .title { font-size: 36px; }
+    .subtitle { font-size: 20px; }
+    .gallery { grid-template-columns: 1fr; gap: 1.8rem; }
+    .g-photo { aspect-ratio: 4 / 3; }
+    .details { grid-template-columns: 1fr; gap: 1.5rem; }
+    .section { padding: 2.5rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="tagline">Pozivamo vas na proslavu rođendana</p>
+    <div class="title">
+      CHARLESTON
+      <span class="subtitle">party — zlatne dvadesete</span>
+    </div>
+    <p class="date-line">06. septembra &ensp;·&ensp; od 18h</p>
+    <div class="ornament">
+      <div class="orn-line"></div>
+      <div class="orn-diamond"></div>
+      <div class="orn-line"></div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="section">
+    <p class="section-label">Dobrodošli u 1920.</p>
+    <div class="intro">
+      <p>Vraćamo vreme u <span class="accent">raskošne dvadesete</span> — u eru šampanjca, džeza i blještavih zabava dostojnih samih Gatsbijevih večeri.</p>
+      <p>Očekuju vas Čarlston ritam, sjaj i noć puna šarma. Sve što nedostaje — ste vi.</p>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="section">
+    <p class="section-label">Do velike noći</p>
+    <div class="countdown">
+      <div class="cd-box"><span class="cd-num" id="cd-d">—</span><span class="cd-lbl">dana</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-h">—</span><span class="cd-lbl">sati</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-m">—</span><span class="cd-lbl">minuta</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-s">—</span><span class="cd-lbl">sekundi</span></div>
+    </div>
+  </div>
+
+  <!-- DRESS CODE / GALLERY -->
+  <div class="section">
+    <p class="section-label">Dres-kod · 1920s</p>
+    <div class="gallery">
+      <div class="g-item">
+        <img class="g-photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BDZXg8BCPtrGJohoA5mh4qkSMg/hf_20260701_155216_63409f4e-7cc5-491c-856d-324995667a4c.png" alt="Gospoda — 1920s stil"/>
+        <span class="g-title">Gospoda</span>
+        <p class="g-text">Košulja, tregeri i leptir-mašna, crno-bele Oxford cipele — opušteno, ali sa stilom.</p>
+      </div>
+      <div class="g-item">
+        <img class="g-photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BDZXg8BCPtrGJohoA5mh4qkSMg/hf_20260701_160150_697d90ec-7c50-4e28-9c3f-4856a6b6f100.png" alt="Dame — 1920s stil"/>
+        <span class="g-title">Dame</span>
+        <p class="g-text">Flapper haljine sa resama i perlama, duge rukavice, perje i sjaj u kosi.</p>
+      </div>
+      <div class="g-item">
+        <img class="g-photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BDZXg8BCPtrGJohoA5mh4qkSMg/hf_20260701_160244_f653c3d1-193c-4849-8905-8c5edbcc70e4.png" alt="Zajedno — 1920s stil"/>
+        <span class="g-title">Zajedno</span>
+        <p class="g-text">Zlato, crno i šampanjac — spremni za Čarlston pod svetlima velikog bala.</p>
+      </div>
+    </div>
+    <p class="dress-note">
+      Dres-kod je <strong>obavezan</strong> — gospoda u košuljama sa tregerima,
+      leptir-mašnama i crno-belim Oxford cipelama, dame u haljinama sa resama i perlama,
+      baš kao u filmu <strong>„Veliki Getsbi“</strong>. Uronite u eru šarma i sjaja.
+    </p>
+  </div>
+
+  <!-- DETAILS -->
+  <div class="section">
+    <p class="section-label">Detalji večeri</p>
+    <div class="details">
+      <div class="detail-box">
+        <span class="d-label">Kada</span>
+        <span class="d-value">06. septembra</span>
+        <span class="d-sub">početak u 18h</span>
+      </div>
+      <div class="detail-box">
+        <span class="d-label">Gde</span>
+        <a class="d-value" href="https://maps.app.goo.gl/y5kLfLLCKPs3616o7" target="_blank" rel="noopener">Vinoteka Čelebon</a>
+        <span class="d-sub">Prokuplje · klikni za mapu</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RSVP -->
+  <div class="section">
+    <p class="section-label">Potvrda dolaska</p>
+    <p class="rsvp-intro">Javite mi da li ćete zakoračiti u zlatne dvadesete sa mnom.</p>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         TALLY FORMA ZA POTVRDU DOLASKA
+         1) Napravi formu na https://tally.so (besplatno)
+         2) Klikni "Share" → "Embed" → iskopiraj ID iz linka
+            (npr. u https://tally.so/r/3xYz9  ID je  3xYz9)
+         3) Zameni  2EZdqe  ispod tim ID-jem — i to je to.
+         Tally ti šalje email za svaku prijavu (Form settings → Emails).
+    ══════════════════════════════════════════════════════════════ -->
+    <iframe
+      data-tally-src="https://tally.so/embed/2EZdqe?alignLeft=1&transparentBackground=1&dynamicHeight=1"
+      loading="lazy" width="100%" height="500" frameborder="0"
+      title="Potvrda dolaska" style="border:none;"></iframe>
+
+    <div class="tally-slot" id="tally-fallback">
+      Forma se učitava… ako se ne prikaže, ubaci svoj <code>Tally</code> ID
+      u <code>data-tally-src</code> (uputstvo je u komentaru u kodu).
+    </div>
+  </div>
+
+  <div class="footer">Jelena &ensp;·&ensp; Charleston Party &ensp;·&ensp; 06.09. &ensp;·&ensp; od 18h</div>
+
+</div>
+
+<script>
+function pad(n){ return String(n).padStart(2,'0'); }
+function tick(){
+  // Datum proslave — po potrebi izmenite godinu
+  var t = new Date('2026-09-06T18:00:00');
+  var now = new Date();
+  var diff = t - now;
+  if(diff <= 0){ ['cd-d','cd-h','cd-m','cd-s'].forEach(function(id){ document.getElementById(id).textContent='00'; }); return; }
+  document.getElementById('cd-d').textContent = pad(Math.floor(diff/86400000));
+  document.getElementById('cd-h').textContent = pad(Math.floor((diff%86400000)/3600000));
+  document.getElementById('cd-m').textContent = pad(Math.floor((diff%3600000)/60000));
+  document.getElementById('cd-s').textContent = pad(Math.floor((diff%60000)/1000));
+}
+tick(); setInterval(tick, 1000);
+</script>
+<!-- Tally embed loader — ne diraj -->
+<script src="https://tally.so/widgets/embed.js"></script>
+</body>
+</html>

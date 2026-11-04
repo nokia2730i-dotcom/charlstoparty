@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Đorđe slavi 8. rođendan — Spajdermen žurka (crna)</title>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Đorđe slavi 8. rođendan — Spajdermen žurka"/>
+<meta property="og:description" content="15. novembar u 20h, Hoprođendaonica, Niš. Otvori pozivnicu i potvrdi dolazak!"/>
+<meta name="description" content="15. novembar u 20h, Hoprođendaonica, Niš. Otvori pozivnicu i potvrdi dolazak!"/>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --red: #e11d2e;
+    --red-dark: #a50f1d;
+    --blue: #1a3a9c;
+    --navy: #0a1445;
+    --navy-deep: #060c2e;
+    --yellow: #ffd400;
+    --white: #ffffff;
+    --ink: #0b0b1e;
+    --cover-a: #e11d2e;
+    --cover-b: #a50f1d;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--navy-deep);
+    color: var(--white);
+    font-family: 'Nunito', system-ui, sans-serif;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .comic {
+    font-family: 'Bangers', 'Impact', 'Arial Black', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--navy);
+    min-height: 100vh;
+    border-left: 4px solid var(--ink);
+    border-right: 4px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* paukova mreža u uglovima */
+  .web {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    fill: none;
+    stroke: rgba(255,255,255,0.28);
+    stroke-width: 1.6;
+    pointer-events: none;
+  }
+  .web.tl { top: 0; left: 0; }
+  .web.tr { top: 0; right: 0; transform: scaleX(-1); }
+  .web.br { bottom: 0; right: 0; transform: scale(-1,-1); }
+
+  /* COVER */
+  body.cover-open { overflow: hidden; }
+
+  .cover {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background:
+      repeating-conic-gradient(from 0deg at 50% 50%, var(--cover-a) 0 8deg, var(--cover-b) 8deg 16deg);
+    transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
+    overflow: hidden;
+  }
+  .cover.hidden { opacity: 0; visibility: hidden; transform: scale(1.08); }
+  .cover .web { stroke: rgba(255,255,255,0.4); width: 340px; height: 340px; }
+
+  .cover-inner {
+    position: relative;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    padding: 2.4rem 1.6rem 2.2rem;
+    background: var(--white);
+    color: var(--ink);
+    border: 5px solid var(--ink);
+    border-radius: 14px;
+    box-shadow: 10px 10px 0 var(--ink);
+    transform: rotate(-1.5deg);
+  }
+
+  .cover-tag {
+    display: inline-block;
+    background: var(--blue);
+    color: var(--white);
+    padding: 0.35rem 1.1rem;
+    font-size: 22px;
+    border: 3px solid var(--ink);
+    transform: rotate(2deg);
+    margin-bottom: 1.1rem;
+  }
+
+  .cover-title {
+    font-size: 64px;
+    line-height: 0.95;
+    color: var(--red);
+    -webkit-text-stroke: 3px var(--ink);
+    paint-order: stroke fill;
+    text-shadow: 4px 4px 0 var(--ink);
+  }
+
+  .cover-sub {
+    display: block;
+    margin-top: 0.7rem;
+    font-size: 26px;
+    color: var(--blue);
+  }
+
+  .cover-spider { width: 78px; margin: 1.1rem auto 0; display: block; }
+
+  .cover-btn {
+    margin-top: 1.5rem;
+    padding: 0.85rem 1.8rem;
+    font-size: 26px;
+    color: var(--ink);
+    background: var(--yellow);
+    border: 4px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 5px 5px 0 var(--ink);
+    cursor: pointer;
+    animation: bounce 1.6s ease-in-out infinite;
+  }
+  .cover-btn:hover { background: #ffe44d; }
+  .cover-btn:active { transform: translate(4px,4px); box-shadow: 1px 1px 0 var(--ink); animation: none; }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    text-align: center;
+    padding: 4.5rem 1.6rem 4rem;
+    background:
+      radial-gradient(circle at 50% 38%, rgba(225,29,46,0.55) 0, rgba(225,29,46,0) 62%),
+      radial-gradient(rgba(255,255,255,0.09) 1.6px, transparent 1.8px) 0 0 / 14px 14px,
+      linear-gradient(180deg, var(--blue), var(--navy));
+    border-bottom: 5px solid var(--ink);
+  }
+
+  .hero > *:not(.web) { position: relative; z-index: 1; }
+
+  .hero-top {
+    font-size: 24px;
+    color: var(--yellow);
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 0 var(--ink);
+  }
+
+  .hero-name {
+    font-size: 78px;
+    line-height: 1;
+    margin-top: 0.4rem;
+    color: var(--white);
+    -webkit-text-stroke: 3px var(--ink);
+    paint-order: stroke fill;
+    text-shadow: 5px 5px 0 var(--red);
+  }
+
+  .hero-slavi {
+    font-size: 28px;
+    margin-top: 0.3rem;
+    color: var(--white);
+    text-shadow: 2px 2px 0 var(--ink);
+  }
+
+  .burst-wrap {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    margin: 1.4rem auto 0.4rem;
+  }
+  .burst-wrap svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .burst-num {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 110px;
+    line-height: 1;
+    color: var(--red);
+    -webkit-text-stroke: 3px var(--ink);
+    paint-order: stroke fill;
+    transform: rotate(-6deg);
+  }
+
+  .hero-roj {
+    font-size: 44px;
+    color: var(--yellow);
+    -webkit-text-stroke: 2px var(--ink);
+    paint-order: stroke fill;
+    text-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .hero-theme {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: 0.4rem 1.2rem;
+    background: var(--red);
+    border: 3px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    font-size: 28px;
+    transform: rotate(-2deg);
+  }
+
+  .date-line {
+    margin-top: 1.6rem;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  /* SEKCIJE */
+  .section {
+    position: relative;
+    padding: 3rem 1.8rem;
+    border-bottom: 5px solid var(--ink);
+  }
+  .section:nth-of-type(even) { background: var(--navy-deep); }
+
+  .section-label {
+    text-align: center;
+    margin-bottom: 1.8rem;
+  }
+  .section-label span {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--ink);
+    font-size: 26px;
+    padding: 0.15rem 1rem;
+    border: 3px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    transform: rotate(-1.5deg);
+  }
+
+  .intro {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 19px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.92);
+  }
+  .intro p + p { margin-top: 1rem; }
+  .intro .accent { color: var(--yellow); }
+
+  /* COUNTDOWN */
+  .countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+  }
+  .cd-box {
+    background: var(--white);
+    color: var(--ink);
+    border: 4px solid var(--ink);
+    border-radius: 10px;
+    box-shadow: 4px 4px 0 var(--red);
+    text-align: center;
+    padding: 1rem 0.2rem 0.7rem;
+  }
+  .cd-num { display: block; font-size: 46px; line-height: 1; color: var(--red); }
+  .cd-lbl {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* DETALJI */
+  .details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+  .detail-box {
+    background: var(--white);
+    color: var(--ink);
+    border: 4px solid var(--ink);
+    border-radius: 12px;
+    box-shadow: 6px 6px 0 var(--red);
+    padding: 1.3rem 1rem 1.2rem;
+    text-align: center;
+  }
+  .d-label {
+    display: inline-block;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 20px;
+    padding: 0 0.8rem;
+    border: 2px solid var(--ink);
+    margin-bottom: 0.7rem;
+  }
+  .d-value {
+    display: block;
+    font-size: 30px;
+    line-height: 1.1;
+    color: var(--red);
+    text-decoration: none;
+  }
+  a.d-value { border-bottom: 3px dashed var(--blue); padding-bottom: 2px; display: block; width: fit-content; margin: 0 auto; }
+  a.d-value:hover { color: var(--blue); }
+  .d-sub {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 14px;
+    font-weight: 700;
+    color: #3a3a58;
+  }
+
+  /* MISIJA */
+  .mission {
+    max-width: 500px;
+    margin: 0 auto;
+    list-style: none;
+  }
+  .mission li {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 18px;
+    line-height: 1.45;
+  }
+  .mission li:last-child { margin-bottom: 0; }
+  .m-num {
+    flex: 0 0 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--red);
+    border: 3px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  /* RSVP */
+  .rsvp-intro {
+    text-align: center;
+    max-width: 420px;
+    margin: 0 auto 1.6rem;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .rsvp-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .rsvp-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0.8rem 0.4rem;
+    color: var(--white);
+    border: 4px solid var(--ink);
+    border-radius: 12px;
+    box-shadow: 5px 5px 0 var(--ink);
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+  .rsvp-btn:active { transform: translate(4px,4px); box-shadow: 1px 1px 0 var(--ink); }
+  .rsvp-btn.wa { background: #1fa855; }
+  .rsvp-btn.vb { background: #7360f2; }
+  .rsvp-btn.tel { background: var(--red); }
+  .rsvp-number { text-align: center; margin-top: 1.4rem; font-size: 17px; color: rgba(255,255,255,0.85); }
+  .rsvp-number b { color: var(--yellow); letter-spacing: 0.04em; }
+  .rsvp-slot {
+    border: 3px dashed rgba(255,255,255,0.5);
+    border-radius: 12px;
+    padding: 2.2rem 1.2rem;
+    text-align: center;
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+  }
+  .rsvp-slot b { color: var(--yellow); }
+
+  .footer {
+    position: relative;
+    text-align: center;
+    padding: 2.4rem 1rem 3rem;
+    font-size: 24px;
+    color: var(--yellow);
+    text-shadow: 2px 2px 0 var(--ink);
+  }
+  .footer svg { width: 60px; display: block; margin: 0 auto 0.6rem; filter: drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff); }
+
+  @media (max-width: 500px) {
+    .cover-title { font-size: 50px; }
+    .hero { padding: 3.6rem 1rem 3.4rem; }
+    .hero-name { font-size: 62px; }
+    .burst-wrap { width: 160px; height: 160px; }
+    .burst-num { font-size: 92px; }
+    .hero-roj { font-size: 36px; }
+    .section { padding: 2.4rem 1.1rem; }
+    .details { grid-template-columns: 1fr; }
+    .rsvp-btn { font-size: 19px; }
+    .cd-num { font-size: 34px; }
+    .web { width: 200px; height: 200px; }
+    .footer { font-size: 19px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cover-btn { animation: none; }
+  }
+</style>
+<style>
+  /* CRNA VARIJANTA */
+  :root {
+    --navy: #0e0e12;
+    --navy-deep: #050507;
+    --blue: #2b2b35;
+    --cover-a: #1b1b22;
+    --cover-b: #07070a;
+  }
+  .hero {
+    background:
+      radial-gradient(circle at 50% 38%, rgba(225,29,46,0.6) 0, rgba(225,29,46,0) 62%),
+      radial-gradient(rgba(255,255,255,0.07) 1.6px, transparent 1.8px) 0 0 / 14px 14px,
+      linear-gradient(180deg, #1a1a22, var(--navy));
+  }
+  .cover .web { stroke: rgba(225,29,46,0.55); }
+  .cover-sub { color: var(--red); }
+  .cover-tag { background: var(--red); }
+  .d-label { background: var(--ink); }
+</style>
+</head>
+<body class="cover-open">
+
+<!-- Deljene SVG definicije: mreža, pauk, eksplozija -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="web-shape" viewBox="0 0 320 320">
+      <path d="M0 0L320 0M0 0L309 83M0 0L277 160M0 0L226 226M0 0L160 277M0 0L83 309M0 0L0 320M55 0Q47 6 53 14Q44 18 48 27Q38 29 39 39Q29 38 28 48Q18 44 14 53Q6 47 0 55M110 0Q94 12 106 28Q87 36 95 55Q75 58 78 78Q58 75 55 95Q36 87 28 106Q12 94 0 110M170 0Q145 19 164 44Q135 56 147 85Q116 89 120 120Q89 116 85 147Q56 135 44 164Q19 145 0 170M235 0Q200 26 227 61Q187 77 204 117Q160 123 166 166Q123 160 118 204Q77 187 61 227Q26 200 0 235M300 0Q256 34 290 78Q238 99 260 150Q205 157 212 212Q157 205 150 260Q99 238 78 290Q34 256 0 300"/>
+    </symbol>
+    <symbol id="spider" viewBox="0 0 100 100">
+      <g fill="none" stroke="#0b0b1e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M42 44L22 30L10 38M42 50L18 50L6 62M42 56L22 72L12 90M44 62L34 82L30 96"/>
+        <path d="M58 44L78 30L90 38M58 50L82 50L94 62M58 56L78 72L88 90M56 62L66 82L70 96"/>
+      </g>
+      <ellipse cx="50" cy="58" rx="13" ry="20" fill="#e11d2e" stroke="#0b0b1e" stroke-width="5"/>
+      <circle cx="50" cy="34" r="9" fill="#e11d2e" stroke="#0b0b1e" stroke-width="5"/>
+      <path d="M50 46L50 74M43 56L57 56M44 64L56 64" stroke="#0b0b1e" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- COVER -->
+<div class="cover" id="cover">
+  <svg class="web" style="top:0;left:0"><use href="#web-shape"/></svg>
+  <svg class="web" style="bottom:0;right:0;transform:scale(-1,-1)"><use href="#web-shape"/></svg>
+  <div class="cover-inner">
+    <div class="cover-tag comic">Pozivnica</div>
+    <div class="cover-title comic">SPAJDERMEN<span class="cover-sub comic">žurka kod Đorđa!</span></div>
+    <svg class="cover-spider" viewBox="0 0 100 100"><use href="#spider"/></svg>
+    <button class="cover-btn comic" onclick="openInvite()">Otvori pozivnicu!</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <svg class="web tl" viewBox="0 0 320 320"><use href="#web-shape"/></svg>
+    <svg class="web tr" viewBox="0 0 320 320"><use href="#web-shape"/></svg>
+    <p class="hero-top comic">Pozivamo te na rođendan!</p>
+    <h1 class="hero-name comic">ĐORĐE</h1>
+    <p class="hero-slavi comic">slavi svoj</p>
+    <div class="burst-wrap">
+      <svg viewBox="0 0 200 200" aria-hidden="true">
+        <polygon fill="#0b0b1e" transform="translate(6 6)"
+          points="100,4 118,40 156,18 152,62 196,60 168,94 200,116 160,130 178,170 136,160 128,200 104,166 76,198 70,158 28,176 46,134 4,122 40,100 8,70 52,68 36,26 78,44"/>
+        <polygon fill="#ffd400" stroke="#0b0b1e" stroke-width="5" stroke-linejoin="round"
+          points="100,4 118,40 156,18 152,62 196,60 168,94 200,116 160,130 178,170 136,160 128,200 104,166 76,198 70,158 28,176 46,134 4,122 40,100 8,70 52,68 36,26 78,44"/>
+      </svg>
+      <div class="burst-num comic">8</div>
+    </div>
+    <p class="hero-roj comic">ROĐENDAN!</p>
+    <div class="hero-theme comic">Spajdermen žurka</div>
+    <p class="date-line">15. novembar &ensp;·&ensp; u 20h &ensp;·&ensp; Niš</p>
+  </header>
+
+  <!-- INTRO -->
+  <section class="section">
+    <div class="section-label"><span class="comic">Mreža je razapeta!</span></div>
+    <div class="intro">
+      <p>Grad te zove, a Đorđe traži <span class="accent">prave heroje</span> za svoju proslavu!</p>
+      <p>Čekaju nas igra, trka, penjanje, torta i mnogo smeha. Dođi, razapni svoju mrežu i budi deo ekipe.</p>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="section">
+    <div class="section-label"><span class="comic">Do početka misije</span></div>
+    <div class="countdown">
+      <div class="cd-box"><span class="cd-num comic" id="cd-d">—</span><span class="cd-lbl">dana</span></div>
+      <div class="cd-box"><span class="cd-num comic" id="cd-h">—</span><span class="cd-lbl">sati</span></div>
+      <div class="cd-box"><span class="cd-num comic" id="cd-m">—</span><span class="cd-lbl">minuta</span></div>
+      <div class="cd-box"><span class="cd-num comic" id="cd-s">—</span><span class="cd-lbl">sekundi</span></div>
+    </div>
+  </section>
+
+  <!-- DETALJI -->
+  <section class="section">
+    <div class="section-label"><span class="comic">Detalji misije</span></div>
+    <div class="details">
+      <div class="detail-box">
+        <span class="d-label comic">Kada</span>
+        <span class="d-value comic">15. novembar</span>
+        <span class="d-sub">početak u 20h</span>
+      </div>
+      <div class="detail-box">
+        <span class="d-label comic">Gde</span>
+        <a class="d-value comic" href="https://www.google.com/maps/search/?api=1&query=Hopro%C4%91endaonica%20Vazduhoplovaca%20bb%20Ni%C5%A1" target="_blank" rel="noopener">Hoprođendaonica</a>
+        <span class="d-sub">Vazduhoplovaca b.b., Niš · klikni za mapu</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ŠTA TE ČEKA (primer teksta — menja se po dogovoru) -->
+  <section class="section">
+    <div class="section-label"><span class="comic">Tvoj zadatak</span></div>
+    <ol class="mission">
+      <li><span class="m-num comic">1</span><span>Dođi na vreme — misija počinje tačno u 20h.</span></li>
+      <li><span class="m-num comic">2</span><span>Potvrdi dolazak ispod, da ne ostanemo bez tvog mesta u ekipi.</span></li>
+      <li><span class="m-num comic">3</span><span>Ponesi dobro raspoloženje i energiju za igru!</span></li>
+    </ol>
+  </section>
+
+  <!-- RSVP -->
+  <section class="section">
+    <div class="section-label"><span class="comic">Potvrda dolaska</span></div>
+    <p class="rsvp-intro">Javi nam da li stižeš da nam se pridružiš u akciji. Dovoljna je jedna poruka!</p>
+    <div class="rsvp-buttons">
+      <a class="rsvp-btn wa comic" href="https://wa.me/381601466236?text=Zdravo!%20Potvr%C4%91ujemo%20dolazak%20na%20%C4%90or%C4%91ev%20ro%C4%91endan." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="rsvp-btn vb comic" href="viber://chat?number=%2B381601466236">Viber</a>
+      <a class="rsvp-btn tel comic" href="tel:+381601466236">Pozovi</a>
+    </div>
+    <p class="rsvp-number">Broj za potvrdu: <b>060 146 6236</b></p>
+  </section>
+
+  <footer class="footer comic">
+    <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#spider"/></svg>
+    Đorđe · 8. rođendan<br/>15.11. · 20h
+  </footer>
+
+</div>
+
+<script>
+function openInvite(){
+  document.getElementById('cover').classList.add('hidden');
+  document.body.classList.remove('cover-open');
+}
+
+function pad(n){ return String(n).padStart(2,'0'); }
+function tick(){
+  // Datum proslave — 15. novembar 2026. u 20h
+  var t = new Date('2026-11-15T20:00:00');
+  var diff = t - new Date();
+  var ids = ['cd-d','cd-h','cd-m','cd-s'];
+  if(diff <= 0){ ids.forEach(function(id){ document.getElementById(id).textContent='00'; }); return; }
+  document.getElementById('cd-d').textContent = pad(Math.floor(diff/86400000));
+  document.getElementById('cd-h').textContent = pad(Math.floor((diff%86400000)/3600000));
+  document.getElementById('cd-m').textContent = pad(Math.floor((diff%3600000)/60000));
+  document.getElementById('cd-s').textContent = pad(Math.floor((diff%60000)/1000));
+}
+tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>

@@ -1,6 +1,0 @@
-{
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/djordje", "destination": "/djordje-spajdermen.html" }
-  ]
-}
